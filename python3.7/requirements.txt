@@ -1,8 +1,8 @@
 redis
-celery
+celery[redis]
 minio
 requests
 lxml
 html5lib
 beautifulsoup4
-
+scrapy
