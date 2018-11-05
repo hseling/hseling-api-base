@@ -4,5 +4,7 @@ LABEL maintainer="Sergey Sobko <ssobko@hse.ru>"
 
 COPY ./requirements.txt /requirements.txt
 
-RUN apk add --update --no-cache g++ gcc libxslt-dev
-RUN pip install -r /requirements.txt
+RUN apk add --no-cache --virtual .build-deps g++ gcc build-base libxslt-dev libffi-dev mariadb-dev \
+    && pip install -r /requirements.txt \
+    && apk add --virtual .runtime-deps mariadb-client-libs \
+    && apk del .build-deps
