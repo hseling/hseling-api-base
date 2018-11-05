@@ -1,6 +1,7 @@
 redis
 celery[redis]
 minio
+mysql
 requests
 lxml
 html5lib
