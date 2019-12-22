@@ -6,5 +6,5 @@ COPY ./requirements.txt /requirements.txt
 
 RUN apk add --no-cache --virtual .build-deps g++ gcc build-base libxslt-dev libffi-dev mariadb-dev \
     && pip install -r /requirements.txt \
-    && apk add --virtual .runtime-deps mariadb-client-libs \
+    && apk add --virtual .runtime-deps mariadb-client-libs curl \
     && apk del .build-deps
